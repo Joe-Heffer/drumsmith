@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "4288c7e8d56557d387ac855e0c36252ef2eb7cd8",
+  "packages": {
+    ".": {
+      "release-type": "python",
+      "package-name": "drumsmith",
+      "include-component-in-tag": false,
+      "extra-files": [
+        {
+          "type": "toml",
+          "path": "uv.lock",
+          "jsonpath": "$.package[?(@.name.value=='drumsmith')].version"
+        }
+      ]
+    }
+  }
+}
