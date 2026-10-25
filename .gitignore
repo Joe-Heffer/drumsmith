@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+dist/
+
+# Build output and rendered audio - never commit
+out/
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Samples, soundfonts and kit downloads - never commit
+*.sf2
+*.sf3
+*.sfz
+samples/
+downloads/
+*.zip
+*.tar.gz
+*.tar.xz
+*.7z
