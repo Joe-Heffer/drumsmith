@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v7
       - name: Install FluidSynth, GM soundfont and ffmpeg for the preview tests
         run: sudo apt-get update && sudo apt-get install -y fluidsynth fluid-soundfont-gm ffmpeg
-      - uses: astral-sh/setup-uv@v10
+      - uses: astral-sh/setup-uv@v10.3.2
         with:
           enable-cache: true
       - run: uv sync --locked
