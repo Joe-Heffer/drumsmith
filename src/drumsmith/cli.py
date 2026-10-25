@@ -2,6 +2,7 @@
 
 import argparse
 import sys
+from collections.abc import Callable
 from pathlib import Path
 
 from drumsmith import __version__, demo
@@ -61,7 +62,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    return args.func(args)
+    func: Callable[[argparse.Namespace], int] = args.func
+    return func(args)
 
 
 if __name__ == "__main__":

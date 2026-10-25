@@ -60,5 +60,7 @@ def test_not_silent_and_below_full_scale(demo_wav: Path) -> None:
         text=True,
         check=True,
     )
-    max_db = float(re.search(r"max_volume: (-?[\d.]+|-inf) dB", result.stderr).group(1))
+    match = re.search(r"max_volume: (-?[\d.]+|-inf) dB", result.stderr)
+    assert match is not None, result.stderr
+    max_db = float(match.group(1))
     assert -60.0 < max_db < 0.0

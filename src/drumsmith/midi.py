@@ -69,8 +69,19 @@ def build_midi(
     return mid
 
 
-def write_midi(path: Path, *args, **kwargs) -> Path:
+def write_midi(
+    path: Path,
+    events: list[NoteEvent],
+    *,
+    bpm: float,
+    time_signature: tuple[int, int],
+    total_ticks: int,
+    title: str = "drumsmith",
+) -> Path:
     """Build a MIDI file (see :func:`build_midi`) and save it to ``path``."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    build_midi(*args, **kwargs).save(path)
+    mid = build_midi(
+        events, bpm=bpm, time_signature=time_signature, total_ticks=total_ticks, title=title
+    )
+    mid.save(path)
     return path
